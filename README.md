@@ -1,2 +1,2 @@
 # MindMeal-repository
-# Repozitorij za MindMeal Web Aplikaciju
+## Repozitorij za MindMeal Web Aplikaciju

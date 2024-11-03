@@ -1,18 +1,36 @@
 const routes = [
   {
-    path: '/',
-    component: () => import('layouts/MainLayout.vue'),
+    path: "/",
+    component: () => import("layouts/MainLayout.vue"),
     children: [
-      { path: '', component: () => import('pages/IndexPage.vue') }
-    ]
+      { path: "", component: () => import("pages/IndexPage.vue") },
+      {
+        path: "/pretrazivanje",
+        component: () => import("pages/PlanoviPrehrane.vue"),
+      },
+      {
+        path: "/personalizacija",
+        component: () => import("pages/PersonaliziraniPlanovi.vue"),
+      },
+      {
+        path: "/forum",
+        component: () => import("pages/ForumPage.vue"),
+      },
+      {
+        path: "/profilkorisnika",
+        component: () => import("pages/KorisnikPage.vue"),
+      },
+      {
+        path: "/profilstrucnjaka",
+        component: () => import("pages/StrucnjakPage.vue"),
+      },
+    ],
   },
 
-  // Always leave this as last one,
-  // but you can also remove it
   {
-    path: '/:catchAll(.*)*',
-    component: () => import('pages/ErrorNotFound.vue')
-  }
-]
+    path: "/:catchAll(.*)*",
+    component: () => import("pages/ErrorNotFound.vue"),
+  },
+];
 
-export default routes
+export default routes;

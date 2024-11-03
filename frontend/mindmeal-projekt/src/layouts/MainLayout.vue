@@ -1,5 +1,5 @@
 <template>
-  <q-layout view="lHh Lpr lFf">
+  <q-layout view="lHh Lpr lFf" class="custom-page-background">
     <q-header elevated>
       <q-toolbar>
         <q-btn
@@ -10,17 +10,28 @@
           aria-label="Menu"
           @click="toggleLeftDrawer"
         />
-
-        <q-toolbar-title> MindMeal App </q-toolbar-title>
-
-        <div>Quasar v{{ $q.version }}</div>
+        <q-toolbar-title class="custom-toolbar-title">
+          <img
+            alt="MindMeal logo"
+            src="~assets/Untitled-4.png"
+            style="width: 200px; height: 62px"
+          />
+        </q-toolbar-title>
+        <img
+          alt="MindMeal logo"
+          src="~assets/logo.png"
+          style="width: 85px; height: 50px"
+        />
       </q-toolbar>
     </q-header>
 
-    <q-drawer v-model="leftDrawerOpen" show-if-above bordered>
-      <q-list>
-        <q-item-label header> Essential Links </q-item-label>
-
+    <q-drawer
+      v-model="leftDrawerOpen"
+      show-if-above
+      bordered
+      class="custom-drawer"
+    >
+      <q-list class="q-mt-md">
         <EssentialLink
           v-for="link in linksList"
           :key="link.title"
@@ -37,7 +48,7 @@
 
 <script setup>
 import { ref } from "vue";
-import EssentialLink from "components/EssentialLink.vue";
+import EssentialLink from "components/EssentialLink.vue"; // Ensure this is correctly imported
 
 defineOptions({
   name: "MainLayout",
@@ -45,46 +56,40 @@ defineOptions({
 
 const linksList = [
   {
-    title: "Docs",
-    caption: "quasar.dev",
-    icon: "school",
-    link: "https://quasar.dev",
+    title: "Početna",
+    caption: "Naslovna stranica",
+    icon: "home",
+    link: "#/",
   },
   {
-    title: "Github",
-    caption: "github.com/quasarframework",
-    icon: "code",
-    link: "https://github.com/quasarframework",
+    title: "Planovi prehrane",
+    caption: "Pretraga prehrambenih planova prehrane",
+    icon: "search",
+    link: "#/pretrazivanje",
   },
   {
-    title: "Discord Chat Channel",
-    caption: "chat.quasar.dev",
-    icon: "chat",
-    link: "https://chat.quasar.dev",
+    title: "Personalizirani planovi",
+    caption: "Personalizirani planovi prehrane",
+    icon: "shield",
+    link: "#/personalizacija",
   },
   {
     title: "Forum",
-    caption: "forum.quasar.dev",
-    icon: "record_voice_over",
-    link: "https://forum.quasar.dev",
+    caption: "Komunikacija između korisnika",
+    icon: "forum",
+    link: "#/forum",
   },
   {
-    title: "Twitter",
-    caption: "@quasarframework",
-    icon: "rss_feed",
-    link: "https://twitter.quasar.dev",
+    title: "Korisnik",
+    caption: "Profil korisnika",
+    icon: "person",
+    link: "#/profilkorisnika",
   },
   {
-    title: "Facebook",
-    caption: "@QuasarFramework",
-    icon: "public",
-    link: "https://facebook.quasar.dev",
-  },
-  {
-    title: "Quasar Awesome",
-    caption: "Community Quasar projects",
-    icon: "favorite",
-    link: "https://awesome.quasar.dev",
+    title: "Stručnjak",
+    caption: "Profil Stručnjaka",
+    icon: "badge",
+    link: "#/profilstrucnjaka",
   },
 ];
 
@@ -94,3 +99,12 @@ function toggleLeftDrawer() {
   leftDrawerOpen.value = !leftDrawerOpen.value;
 }
 </script>
+
+<style scoped>
+.custom-toolbar-title {
+  font-family: "Century Gothic", Arial, sans-serif;
+}
+.custom-page-background {
+  background-color: #ffffff;
+}
+</style>
